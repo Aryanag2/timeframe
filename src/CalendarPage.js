@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import { Link } from 'react-router-dom';
 
 const localizer = momentLocalizer(moment);
 
@@ -56,6 +57,9 @@ const CalendarPage = () => {
           }}
           onSelectEvent={handleEventClick}
         />
+        <Link to="/todo" className="btn">
+        Add Todo
+      </Link>
       </div>
       {isAddingEvent ? (
         <div>
