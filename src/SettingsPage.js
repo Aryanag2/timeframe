@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import M from 'materialize-css';
+import { useNavigate } from 'react-router-dom';
 
 const SettingsPage = () => {
   const [settings, setSettings] = useState({
@@ -8,6 +9,8 @@ const SettingsPage = () => {
     wakeUpTime: '',
     longTermGoals: ['']
   });
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     M.Timepicker.init(document.querySelectorAll('.timepicker'));
@@ -72,6 +75,10 @@ const SettingsPage = () => {
     e.preventDefault();
     console.log('Settings saved:', settings);
   };
+
+  const goToCalendar = () => {  
+    navigate('/calendar');
+  }
 
   return (
     <div className="container">
@@ -142,9 +149,12 @@ const SettingsPage = () => {
           </div>
         ))}
         <button type="button" onClick={addLongTermGoal} className="btn-small blue">Add Long Term Goal</button>
+        <div><button className="btn waves-effect waves-light" type="submit">Save Settings</button></div>
 
-        <button className="btn waves-effect waves-light" type="submit">Save Settings</button>
       </form>
+        <button className="btn waves-effect waves-light" onClick={goToCalendar}>
+            Back to Calendar
+            </button>
     </div>
   );
 };
