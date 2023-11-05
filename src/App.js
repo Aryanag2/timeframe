@@ -7,6 +7,7 @@ import CalendarPage from './CalendarPage';
 import TodoPage from './ToDoPage';
 import SettingsPage from './SettingsPage';
 import { EventsProvider } from './EventsContext'; // Import the EventsProvider
+import HomePage from './HomePage';
 
 const App = () => {
   return (
@@ -14,7 +15,7 @@ const App = () => {
       <Navbar />
       <EventsProvider> {/* Wrap your routes in the EventsProvider */}
         <Routes>
-          <Route path="/" element={<h1>Home</h1>} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/calendar" element={<CalendarPage />} />

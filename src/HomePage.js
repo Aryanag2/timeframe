@@ -3,8 +3,15 @@ import 'materialize-css/dist/css/materialize.min.css'; // Import Materialize CSS
 import 'materialize-css/dist/js/materialize.min.js'; // Import Materialize JS
 
 function HomePage() {
+  // const backgroundStyle = {
+  //   background: 'url("/path-to-your-image.jpg")', // Replace with the path to your background image
+  //   backgroundSize: 'cover',
+  //   backgroundPosition: 'center',
+  //   minHeight: '100vh',
+  // };
+
   return (
-    <div style={backgroundStyle}>
+    // <div style={backgroundStyle}>
     <div className="container">
       <div className="row">
         <div className="col s12 m8 offset-m2">
@@ -18,7 +25,7 @@ function HomePage() {
         </div>
       </div>
     </div>
-    </div>
+    // </div>
   );
 }
 
