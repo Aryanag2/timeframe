@@ -553,6 +553,9 @@ const TodoPage = () => {
         title: todoToAdd.title,
         start: eventStart,
         end: deadlineDate,
+        duration: todoToAdd.duration,
+        priority: todoToAdd.priority,
+        isEvent: false,
         allDay: false,
       });
 

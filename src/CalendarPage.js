@@ -13,6 +13,7 @@ const CalendarPage = () => {
     title: '',
     start: new Date(),
     end: new Date(),
+    isEvent: true,
   });
 
   const [isAddingEvent, setIsAddingEvent] = useState(false);
