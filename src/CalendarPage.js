@@ -3,19 +3,12 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { Link } from 'react-router-dom';
+import { useEvents } from './EventsContext';
 
 const localizer = momentLocalizer(moment);
 
 const CalendarPage = () => {
-  const [events, setEvents] = useState([
-    {
-      title: 'Meeting',
-      start: new Date(2023, 10, 15, 10, 0),
-      end: new Date(2023, 10, 15, 12, 0),
-    },
-    // Add more events as needed
-  ]);
-
+  const { events, addEvent, removeEvent } = useEvents(); // Use the context
   const [newEvent, setNewEvent] = useState({
     title: '',
     start: new Date(),
@@ -26,16 +19,14 @@ const CalendarPage = () => {
 
   const handleEventFormSubmit = (e) => {
     e.preventDefault();
-    setEvents([...events, newEvent]);
+    addEvent(newEvent); // Use addEvent from context
     setNewEvent({ title: '', start: new Date(), end: new Date() });
-    setIsAddingEvent(false);
   };
 
   const handleEventClick = (event) => {
-    // Implement event removal logic here
-    const updatedEvents = events.filter((e) => e !== event);
-    setEvents(updatedEvents);
+    removeEvent(event); // Use removeEvent from context
   };
+
 
   return (
     <div>
