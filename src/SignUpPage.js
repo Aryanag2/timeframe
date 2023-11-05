@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const SignUpPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSignUp = (e) => {
     e.preventDefault();
     // Add your sign-up logic here (e.g., API call to create a new user)
+    navigate('/login');
   };
 
   return (

@@ -8,6 +8,7 @@ import TodoPage from './ToDoPage';
 import SettingsPage from './SettingsPage';
 import { EventsProvider } from './EventsContext'; // Import the EventsProvider
 import HomePage from './HomePage';
+ // Import your CSS file
 
 const App = () => {
   return (
