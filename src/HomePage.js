@@ -1,21 +1,16 @@
 import React from 'react';
 import 'materialize-css/dist/css/materialize.min.css'; // Import Materialize CSS
 import 'materialize-css/dist/js/materialize.min.js'; // Import Materialize JS
-
+import './App.css';
 function HomePage() {
-  // const backgroundStyle = {
-  //   background: 'url("/path-to-your-image.jpg")', // Replace with the path to your background image
-  //   backgroundSize: 'cover',
-  //   backgroundPosition: 'center',
-  //   minHeight: '100vh',
-  // };
+
 
   return (
-    // <div style={backgroundStyle}>
+    <div className='bg'>
     <div className="container">
       <div className="row">
         <div className="col s12 m8 offset-m2">
-          <div className="card-panel z-depth-3 teal lighten-2">
+          <div className="card-panel z-depth-3 blue-grey darken-3">
             <h2 className="white-text center-align">Welcome to timeFrame</h2>
             <p className="white-text center-align">Your Personal Time Management Assistant</p>
             <div className="center-align">
@@ -25,7 +20,7 @@ function HomePage() {
         </div>
       </div>
     </div>
-    // </div>
+    </div>
   );
 }
 
