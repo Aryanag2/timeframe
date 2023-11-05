@@ -6,13 +6,14 @@ import SignUpPage from './SignUpPage';
 import CalendarPage from './CalendarPage';
 import TodoPage from './ToDoPage';
 import SettingsPage from './SettingsPage';
+import HomePage from './HomePage';
 
 const App = () => {
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={<h1>Home</h1>} />
+        <Route path="/" element={<HomePage/>} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/calendar" element={<CalendarPage />} />
