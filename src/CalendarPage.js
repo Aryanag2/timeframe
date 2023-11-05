@@ -20,8 +20,8 @@ const CalendarPage = () => {
 
   const handleEventFormSubmit = (e) => {
     e.preventDefault();
-    addEvent(newEvent); // Use addEvent from context
-    setNewEvent({ title: '', start: new Date(), end: new Date() });
+    addEvent({ ...newEvent, isEvent: true });
+    setNewEvent({ title: '', start: new Date(), end: new Date(), isEvent: true });
   };
 
   const handleEventClick = (event) => {

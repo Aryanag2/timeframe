@@ -86,16 +86,29 @@ export const EventsProvider = ({ children }) => {
   
   // You would then call this `findNonOverlappingSlot` inside your `addEvent` function as before.
 // Revised addEvent function to utilize the new slot finding logic
+// Revised addEvent function to bypass slot finding if isEvent is true
 const addEvent = (newEvent) => {
-  // Determine if the event is high priority
-  const isHighPriority = newEvent.priority === 'High';
+  // If it's an event (not a task or something that requires a slot), add it directly
+  if (newEvent.isEvent) {
+    setEvents((prevEvents) => [...prevEvents, newEvent]);
+  } else {
+    // If it's not marked as an event, then find a slot for it
+    // Determine if the event is high priority
+    const isHighPriority = newEvent.priority === 'High';
   
-  // Find an appropriate slot for the new event
-  const eventWithSlot = findNonOverlappingSlot(events, newEvent, isHighPriority);
-
-  // Add the event to the list
-  setEvents((prevEvents) => [...prevEvents, eventWithSlot]);
-};  
+    // Find an appropriate slot for the new event
+    const eventWithSlot = findNonOverlappingSlot(events, newEvent, isHighPriority);
+  
+    // If a slot is found or it's a high-priority event, add it to the list
+    if (eventWithSlot) {
+      setEvents((prevEvents) => [...prevEvents, eventWithSlot]);
+    } else {
+      // Handle the case where no slot could be found
+      console.error('No slot available for this event.');
+      // Optionally, you might want to give user feedback here
+    }
+  }
+};
 
   // Function to remove an event
   const removeEvent = (eventToRemove) => {
